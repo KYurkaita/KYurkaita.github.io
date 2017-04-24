@@ -19,12 +19,31 @@
       </span>
     </p>
 
+    <p id ="output" >X:<span id="x">0</span> <span id="y">0</span></p>
+    
     
 
-
-    
-    
   </body>
+
+  <script>
+
+    document.body.addEventListener("click",function(e)){
+
+    e.preventDefault();
+    
+    var mX = e.pageX;
+    var mY = e.pageY;
+
+    xEL.textContent = Math.floor(mX);
+    yEL.textContent = Math.floor(mY);
+    });
+
+    var xEL = document.getElementById("x");
+    var yEL = document.getElementById("y");
+    
+  </script>
+  
+
   
 
 </html>
