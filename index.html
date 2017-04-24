@@ -29,7 +29,7 @@
 
   <script>
 
-    document.body.addEventListener("click",function(e)){
+    var mEv = function(e){
     
     var mX = e.pageX;
     var mY = e.pageY;
@@ -38,8 +38,10 @@
         
     xEL.textContent = Math.floor(mX-rec.left-window.pageXOffset);
     yEL.textContent = Math.floor(mY-rec.right-window.pageYOffset);
-    });
+    };
 
+    document.getElementById("fm").addEventListener("click",mEv);
+    
     var xEL = document.getElementById("x");
     var yEL = document.getElementById("y");
     
