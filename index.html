@@ -12,30 +12,32 @@
   </head>
   
   <body>
-    <p sytle="position:relative;">
-      <img src ="http://2.bp.blogspot.com/-Vo_Zg1TcAz8/V5NDnu2l8WI/AAAAAAAA8dQ/bVr8Ybi7k9oSX8MH0Af9Kvv5MzW-ccwJQCLcB/s800/ai_pet_family.png"> 
-      <span style="position:absolute; top: 15px; left:10px; width: 150px">
-	わたしがつくりました
-      </span>
-    </p>
-
-    <p id ="output" >X:<span id="x">0</span> <span id="y">0</span></p>
-    
-    
+    <div id="fm">
+      <p sytle="position:relative;">
+	<img src ="http://2.bp.blogspot.com/-Vo_Zg1TcAz8/V5NDnu2l8WI/AAAAAAAA8dQ/bVr8Ybi7k9oSX8MH0Af9Kvv5MzW-ccwJQCLcB/s800/ai_pet_family.png"> 
+	<span style="position:absolute; top: 15px; left:10px; width: 150px">
+	  わたしがつくりました
+	</span>
+      </p>
+      
+      <p id ="output" >X:<span id="x">0</span> <span id="y">0</span></p>
+      
+    </div>
+      
 
   </body>
 
   <script>
 
     document.body.addEventListener("click",function(e)){
-
-    e.preventDefault();
     
     var mX = e.pageX;
     var mY = e.pageY;
 
-    xEL.textContent = Math.floor(mX);
-    yEL.textContent = Math.floor(mY);
+    var rec=(document.getElementById("fm")).getBoundingClientRect();
+        
+    xEL.textContent = Math.floor(mX-rec.left-window.pageXOffset);
+    yEL.textContent = Math.floor(mY-rec.right-window.pageYOffset);
     });
 
     var xEL = document.getElementById("x");
